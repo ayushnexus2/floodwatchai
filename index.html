@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloodWatch - Waterlogging Early Warning</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>FloodWatch</h1>
+    <p>Local waterlogging and flood risk with early warning</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="search">
+        <input id="q" type="text" placeholder="Search your city or area" autocomplete="off">
+        <button id="searchBtn" type="button">Search</button>
+        <button id="locBtn" type="button" class="secondary">Use my location</button>
+      </div>
+      <ul id="suggestions" class="suggestions"></ul>
+      <p id="status" class="status" role="status"></p>
+    </section>
+
+    <section id="results" class="hidden">
+      <div id="alertBox" class="alert" data-level="none">
+        <strong id="alertTitle"></strong>
+        <span id="alertMsg"></span>
+      </div>
+
+      <div class="card top">
+        <div>
+          <h2 id="place"></h2>
+          <p class="muted" id="meta"></p>
+        </div>
+        <div id="gauge" class="gauge" data-level="Low">
+          <span id="score">0</span>
+          <small id="level">Low</small>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Next 24 hours of rain (mm per hour)</h3>
+        <div id="chart" class="chart"></div>
+        <div id="chartLabels" class="chart-labels"></div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Key numbers</h3>
+          <dl id="stats" class="stats"></dl>
+        </div>
+        <div class="card">
+          <h3>Why this score</h3>
+          <ul id="factors" class="factors"></ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>What you should do</h3>
+        <ul id="advice"></ul>
+      </div>
+
+      <div class="card row">
+        <button id="notifyBtn" type="button" class="secondary">Enable browser alerts</button>
+        <p class="muted" id="updated"></p>
+      </div>
+
+      <p class="muted small">
+        Risk is an estimate from forecast rainfall, recent rain, soil wetness,
+        terrain height and river data. It is not an official warning. Always
+        follow your local weather and disaster authority.
+      </p>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
